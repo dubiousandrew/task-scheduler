@@ -1,0 +1,10 @@
+CREATE SCHEMA `task` DEFAULT CHARACTER SET utf8 ;
+
+CREATE TABLE IF NOT EXISTS `task`.`tasks` (
+  `id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
+  `name` VARCHAR(45) NOT NULL,
+  `created` DATE NOT NULL,
+  `due` DATE NOT NULL,
+  `description` TEXT NULL,
+  PRIMARY KEY (`id`))
+ENGINE = InnoDB

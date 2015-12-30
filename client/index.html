@@ -1,0 +1,82 @@
+<!doctype html>
+<html ng-app="schedulerApp">
+    <head>
+      <title>Task Scheduler</title>
+      <!-- Latest compiled and minified CSS -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    </head>
+    
+    <body ng-controller="schedulerCtrl" style="margin-left: 20px; margin-right: 20px;">
+      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-resource.min.js"></script>
+      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-route.min.js"></script>
+      
+      <script src="scheduler.js"></script>
+      
+      <div class="containter-fluid">
+        <div class="row">
+          <div class="col-md-12">
+            <h1>Task Scheduler</h1>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-8">
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                <h3 class="panel-title">Tasks</h3>
+              </div>
+              <div class="panel-body">
+                <table class="table">
+                  <thead>
+                    <tr>          
+                      <th>Name</th>
+                      <th>Created</th>
+                      <th>Due</th>
+                      <th>Description</th>
+                      <th></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr ng-repeat="task in tasks">
+                      <td>{{task.name}}</td>
+                      <td>{{task.created}}</td>
+                      <td>{{task.due}}</td>
+                      <td>{{task.description}}</td>
+                      <td><button type="button" class="btn btn-default btn-sm" ng-click="deleteTask(task.id)">Delete</button></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                <h3 class="panel-title">Schedule a task</h3>
+              </div>
+              <div class="panel-body">
+                <form name="addForm">
+                  <label for="taskName">Name</label>
+                  <input type='text' ng-model="task.name" class="form-control" id="taskName" required>
+
+                  <label for="taskCreated">Created</label>
+                  <input type='date' ng-model="task.created" class="form-control" id="taskCreated" required>
+
+                  <label for="taskDueIn">Due in</label>
+                  <select ng-model="task.interval" id="taskDueIn"
+                          ng-options="interval for interval in intervals" class="form-control">
+                  </select>
+
+                  <label for="taskDescription">Description</label>
+                  <input type='text' ng-model="task.description" class="form-control" id='taskDescription' required>
+
+                  <button type="submit" class="btn btn-primary" ng-click="addTask()">Add</button>  
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </body>
+</html>
+
