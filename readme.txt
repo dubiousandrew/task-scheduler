@@ -8,7 +8,7 @@ The RESTful app is in the rest folder.  The config folder contains database para
 The RestServices class is the meat of the server side. It supports exactly 4 methods.  
 To make a RESTful call try:
 
-1.  A get request to all the tasks
+1.  A get request to get all the tasks
 'GET'   http://localhost/TaskScheduler/rest/task.php      to get array of tasks as json objects
 
 2.  A get request to get one task
