@@ -25,7 +25,7 @@ The sql folder contains the sql needed to create the database.
 
 
 HOW TO INSTALL
-1. run the sql file to set up the database.
+1. run the sql file to set up the database
 2. change the rest/config/database.php to your settings
 3. put the project folder in you htdocs folder
 4. go to http://localhost/TaskScheduler/client/
